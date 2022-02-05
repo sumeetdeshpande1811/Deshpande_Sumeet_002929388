@@ -16,6 +16,7 @@ import java.text.*;
 import model.ServiceRecordsHistory;
 
 
+
 /**
  *
  * @author sumeetsunildeshpande
@@ -26,6 +27,7 @@ public class CreateJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
     Car car;
+    int flag=0;
     ServiceRecordsHistory history;
     public CreateJPanel(Car car, ServiceRecordsHistory history) {
         initComponents();
@@ -509,7 +511,17 @@ public class CreateJPanel extends javax.swing.JPanel {
            car.setOwner_address(valueCheck);
         }
         
+        if(car.getPhoto()==null)
+        {
+             JOptionPane.showMessageDialog(this,"Please add Photo");
+             return;
+        }
         
+        if(flag==0)
+        {
+            JOptionPane.showMessageDialog(this,"Please add ServiceRecords");
+             return;
+        }
         JOptionPane.showMessageDialog(this,"Car Details Saved ");
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -539,33 +551,8 @@ public class CreateJPanel extends javax.swing.JPanel {
              txtCapacity.setText("");
              
       JOptionPane.showMessageDialog(this,"Service Record Added");
-         /*if(isValidDate(txtServiceDate.getText()))
-         {
-             record.setDate(txtServiceDate.getText());
-             txtServiceDate.setText("");
-         }
-         else{
-             JOptionPane.showMessageDialog(this,"Please Enter Valid Date in dd/MM/yyyy");
-             return;
-         }
-        if(txtMileage.getText().trim().isEmpty() || !(txtMileage.getText().trim().chars().allMatch( Character::isLetter ) ) )
-        {
-            JOptionPane.showMessageDialog(this,"Please Enter Valid Mileage in number");
-            return;
-        }
-        else{
-             record.setMileage(txtMileage.getText().trim());
-              txtMileage.setText("");
-        }
-        if(txtCapacity.getText().trim().isEmpty() || !(txtMileage.getText().trim().chars().allMatch( Character::isLetter )))
-        {
-             JOptionPane.showMessageDialog(this,"Please Enter Valid Capacity in number");
-             return;
-        }
-        else{
-            record.setGas_capacity(txtCapacity.getText());
-             txtCapacity.setText("");
-        }*/
+      flag=1;
+        
            
         
         
